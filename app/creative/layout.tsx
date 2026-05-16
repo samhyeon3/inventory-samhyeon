@@ -14,6 +14,7 @@ export default function CreativeLayout({
     { name: "문제", path: "/creative" },
     { name: "정답 확인", path: "/creative/answers" },
     { name: "문제 업로드", path: "/creative/upload" },
+    { name: "AI 튜터", path: "/creative/chat" },
   ];
 
   return (
