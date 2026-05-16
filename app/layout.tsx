@@ -4,6 +4,8 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import Link from "next/link";
+
 export const metadata: Metadata = {
   title: "삼현T의 수학실",
   description: "삼현T의 온라인 도구앱 만들기",
@@ -18,16 +20,22 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         {/* 상단 헤더 */}
-        <header className="bg-blue-600 text-white shadow-md">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 className="text-xl font-bold tracking-tight">삼현T의 수학실</h1>
-            <nav>
-              {/* 여기에 새로운 네비게이션 링크를 추가하세요 */}
-              <ul className="flex space-x-4">
-                <li><a href="#" className="hover:text-blue-200 transition-colors">홈</a></li>
-                <li><a href="#" className="hover:text-blue-200 transition-colors">도구 모음</a></li>
+        <header className="bg-blue-600 text-white shadow-md relative z-10">
+          <div className="container mx-auto px-4 py-4 flex justify-between items-center md:justify-center relative">
+            <h1 className="text-xl font-bold tracking-tight md:absolute md:left-4">
+              <Link href="/">삼현T의 수학실</Link>
+            </h1>
+            <nav className="hidden md:block">
+              <ul className="flex space-x-8 text-lg font-medium">
+                <li><Link href="/" className="hover:text-blue-200 transition-colors">홈</Link></li>
+                <li><Link href="/creative" className="hover:text-blue-200 transition-colors">창의 문제</Link></li>
+                <li><Link href="/tools" className="hover:text-blue-200 transition-colors">도구 모음</Link></li>
               </ul>
             </nav>
+            {/* 모바일 환경용 네비게이션 공간 (추후 확장 가능) */}
+            <div className="md:hidden">
+               <Link href="/creative" className="text-sm hover:text-blue-200">창의 문제</Link>
+            </div>
           </div>
         </header>
 
